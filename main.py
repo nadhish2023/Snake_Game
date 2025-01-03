@@ -75,7 +75,7 @@ message="hello"
 
 def calculate_delay(score):
     base_delay = 0.25  # initial delay
-    min_delay = 0.1    # minimum delay
+    min_delay = 0.07    # minimum delay
     scaling_factor = 200  # higher value for slower decay
     # Hyperbolic decay formula
     delay = base_delay - ((score / scaling_factor) ** 2)
