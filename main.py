@@ -4,6 +4,7 @@ from food import *
 from high_score import *
 import wall
 import time
+import math
 
 myscreen=Screen()
 myscreen.tracer(0)
@@ -72,9 +73,16 @@ def call_error():
 
 message="hello"
 
+def calculate_delay(score):
+    base_delay = 0.25
+    min_delay = 0.1
+    scaling_factor = 200
+    delay = base_delay - ((score / scaling_factor) ** 2)
+    return max(delay, min_delay)
+
 while game_is_on:
     myscreen.update()
-    time.sleep(0.1)
+    time.sleep(calculate_delay(score))
     snake.move()
     if snake.collide():
         message="Collision With Tail"
